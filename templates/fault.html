@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Oops..!</title>
+    <link rel="icon" href="{{url_for('static',filename='Mapo.ico')}}" type="mapo.ico-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/fault.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Oops..!</h1>
+        <p class="error-message"><b> Desired Route from <span>{{source.upper()}}</span> to <span>{{destination.upper()}}</span> is not Possible.!<b></p>
+            <a href="javascript:history.go(-1)">Go back</a>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="{{url_for('static',filename='Mapo.ico')}}" type="Mapo-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Creation</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/shortest_path.css">
+</head>
+<center>
+<body>
+    <h1>Graph Information</h1>
+    <form id="shortestPathForm" action="/create_graph" method="POST">
+        <label for="num_nodes">Number of Nodes:</label>
+        <input type="number" id="num_nodes" name="num_nodes" required><br><br>
+
+        <button type="button" onclick="showNodeInputs()"><b>Add Nodes</b></button>
+
+        <div id="nodeInputs" class="hidden">
+            <h3>Node Information:</h3>
+            <div id="nodeFields"></div>
+            <br>
+
+            <button type="button" onclick="showEdgeCountInput()" id="nodeSubmitBtn" class="hidden"><b>Next</b></button><br>
+        </div><br>
+
+        <div id="edgeCountInput" class="hidden">
+            <label for="num_edges">Number of Edges:</label>
+            <input type="number" id="num_edges" name="num_edges" required><br><br>
+
+            <button type="button" onclick="showEdgeInputs()" id="edgeCountSubmitBtn" class="hidden"><b>Next</b></button>
+        </div>
+
+        <div id="edgeInputs" class="hidden">
+            <h3>Edge Information:</h3>
+            <div id="edgeFields"></div>
+            <br>
+
+            <input type="submit" value="Create Graph" id="createGraphBtn" class="hidden" style="font-weight: bold;" required>
+            <br><br>
+        </div>
+    </form>
+
+    <script>
+        function showNodeInputs() {
+            var numNodes = document.getElementById("num_nodes").value;
+            var nodeFields = document.getElementById("nodeFields");
+
+            nodeFields.innerHTML = "";
+
+            for (var i = 0; i < numNodes; i++) {
+                var label = document.createElement("label");
+                label.textContent = "Node " + (i + 1) + ":";
+
+                var input = document.createElement("input");
+                input.setAttribute("type", "text");
+                input.setAttribute("name", "node_" + i);
+                input.setAttribute("required", "");
+
+                var br = document.createElement("br");
+
+                nodeFields.appendChild(label);
+                nodeFields.appendChild(input);
+                nodeFields.appendChild(br);
+            }
+
+            document.getElementById("nodeInputs").classList.remove("hidden");
+            document.getElementById("nodeSubmitBtn").classList.remove("hidden");
+        }
+
+        function showEdgeCountInput() {
+            document.getElementById("edgeCountInput").classList.remove("hidden");
+            document.getElementById("edgeCountSubmitBtn").classList.remove("hidden");
+        }
+
+        function showEdgeInputs() {
+            var numEdges = document.getElementById("num_edges").value;
+            var edgeFields = document.getElementById("edgeFields");
+
+            edgeFields.innerHTML = "";
+
+            for (var i = 0; i < numEdges; i++) {
+                var fromLabel = document.createElement("label");
+                fromLabel.textContent = "From Node:";
+
+                var fromInput = document.createElement("input");
+                fromInput.setAttribute("type", "text");
+                fromInput.setAttribute("name", "from_node_" + i);
+                fromInput.setAttribute("required", "");
+
+                var toLabel = document.createElement("label");
+                toLabel.textContent = "To Node:";
+
+                var toInput = document.createElement("input");
+                toInput.setAttribute("type", "text");
+                toInput.setAttribute("name", "to_node_" + i);
+                toInput.setAttribute("required", "");
+
+                var weightLabel = document.createElement("label");
+                weightLabel.textContent = "Weight:";
+
+                var weightInput = document.createElement("input");
+                weightInput.setAttribute("type", "number");
+                weightInput.setAttribute("name", "weight_" + i);
+                weightInput.setAttribute("required", "");
+
+                var br = document.createElement("br");
+
+                edgeFields.appendChild(fromLabel);
+                edgeFields.appendChild(fromInput);
+                edgeFields.appendChild(toLabel);
+                edgeFields.appendChild(toInput);
+                edgeFields.appendChild(weightLabel);
+                edgeFields.appendChild(weightInput);
+                edgeFields.appendChild(br);
+            }
+
+            document.getElementById("edgeInputs").classList.remove("hidden");
+            document.getElementById("createGraphBtn").classList.remove("hidden");
+        }
+    </script>
+</body>
+</center>
+</html>

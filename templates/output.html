@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desired Output</title>
+    <link rel="icon" href="{{url_for('static',filename='Mapo.ico')}}" type="mapo.ico-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='output.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Path</h1>
+        <div class="output-group">
+            <label>Path:</label>
+            <p>{{ path_dirr }}</p>
+        </div>
+        <div class="output-group">
+            <label>Distance:</label>
+            <p>{{ distance }} Unit</p>
+        </div>
+        <b>
+        <center>
+        <a href="javascript:history.go(-1)">Go back</a>
+        <center>
+        </b>
+    </div>
+</body>
+</html>

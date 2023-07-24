@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="/static/Mapo.ico" type="images/x-icon">
+    <title>Find Path</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/shortest_path.css')}}">
+    <style>
+        .bold-button {
+            font-weight: bold;
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shortest Path</h1>
+        <form method="POST" action="/path_finder">
+            <div class="input-group">
+                <label for="source"><b>Your Location:</b></label><br>
+                <input type="text" id="source" name="source" placeholder="Choose a starting point" pattern="[A-Za-z]+" title="Please enter a valid Source" required><br><br>
+            </div>
+            <div class="input-group">
+                <label for="destination"><b>Choose destination:</b></label><br>
+                <input type="text" id="destination" name="destination" placeholder="Choose destination..." pattern="[A-Za-z]+" title="Please enter a valid Destination" required><br><br>
+            </div>
+            <div class="input-group">
+                <input type="submit" value="Directions" class="bold-button">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

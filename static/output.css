@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #046069;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #080000;
+    text-align: center;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.output-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+p {
+    margin: 0;
+}
+
+/* Optional: Add additional styles to enhance the visual appearance */
+
+.container {
+    background-color: #038f86;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(9, 0, 0, 0.969);
+}
+
+.output-group {
+    border-bottom: 3px solid #0f0000;
+    padding-bottom: 10px;
+}
+
+.output-group:last-child {
+    border-bottom: none;
+}
