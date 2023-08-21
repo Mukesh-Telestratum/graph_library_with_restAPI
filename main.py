@@ -1,4 +1,4 @@
-#This is my new.py in this program it takes only uni direction paths and connect them. 
+#This is my main.py in this program it takes only uni direction paths and connect them. 
 # It works properly for finding the shortest paths and distance between them.
 #This is integrated with shortest_path.html which includes java script as well
 from flask import Flask, request, render_template
